@@ -1,0 +1,36 @@
+import { packd_export_0 } from 'https://srv.divriots.com/packd/lit,lit-html@next-major';const { LitElement,html } = packd_export_0;;
+
+class FetchingData extends LitElement {
+  static get properties() {
+    return {
+      response: {
+        type: Array
+      }
+    };
+  }
+
+  constructor() {
+    super();
+    this.response = [];
+  }
+
+  firstUpdated() {
+    fetch("https://swapi.dev/api/people/").then(r => r.json()).then(r => {
+      this.response = r.results;
+    });
+  }
+
+  render() {
+    const {
+      response
+    } = this;
+    return html`
+      <ul>
+        ${response.map(item => html` <li>${item.name}</li> `)}
+      </ul>
+    `;
+  }
+
+}
+
+customElements.define("fetching-data", FetchingData);
