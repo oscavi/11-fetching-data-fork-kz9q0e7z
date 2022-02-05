@@ -1,0 +1,7 @@
+{
+  "name": "@wcd/oscavi.11-fetching-data-fork-kz9q0e7z",
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "npx wcd-cli@latest serve ec0uf5lZ8hl5plaMxfsm --open"
+  }
+}
